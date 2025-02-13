@@ -1,8 +1,8 @@
 import dash
-from dash import html, dcc
 
-from data import carregar_dados
-from plots import criar_grafico_barras, criar_grafico_linhas
+from dash import html, dcc
+from data.data import carregar_dados
+from plots.plots import criar_grafico_barras, criar_grafico_linhas
 
 df = carregar_dados()
 
@@ -17,8 +17,8 @@ app.layout = html.Div(
 
     html.H2('Indicadores Financeiros', style={'textAlign': 'center'}),
     html.Div([
-        html.P(f"Lucro Liquido Total: R$ {df['Lucro Liquido'].sum():,.2f}"),
-        html.P(f"Margem de Lucro Media: {df['Margem de Lucro'].mean():,.2f}%")
+        html.P(f"Lucro Liquido Total: R$ {df['lucro_liquido'].sum():,.2f}"),
+        html.P(f"Margem de Lucro Media: {df['margem_de_lucro'].mean():,.2f}%")
     ], style={'textAlign': 'center'}),
     ]
 )
